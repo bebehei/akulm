@@ -1,0 +1,10 @@
+[Trigger]
+Operation=Upgrade
+Type=Package
+Target=linux
+
+# Link the module files from
+[Action]
+Depends=coreutils
+When=PostTransaction
+Exec=/bin/sh -c '[ -e "/usr/lib/modules/$(uname -r)" ] || ln -sT /run/modules/$(uname -r) /usr/lib/modules/$(uname -r)'

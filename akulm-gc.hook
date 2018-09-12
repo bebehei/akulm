@@ -1,0 +1,10 @@
+[Trigger]
+Operation=Upgrade
+Type=Package
+Target=linux
+
+# Find links, which aren't used anymore and finally remove them
+[Action]
+Depends=findutils
+When=PreTransaction
+Exec=/usr/bin/find /usr/lib/modules -mindepth 1 -maxdepth 1 -xtype l -exec rm '{}' ';'
