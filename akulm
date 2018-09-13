@@ -6,6 +6,11 @@ do_copy() {
 		"/run/modules/$(uname -r)/"
 }
 
+do_clean() {
+  rm -rf /run/modules/*
+  do_gc_links
+}
+
 do_gc_modules() {
 	find /run/modules \
 		-mindepth 1 \
@@ -30,4 +35,5 @@ case "${1}" in
 	copy) do_copy;;
 	gc)	 do_gc_links && do_gc_modules;;
 	link) do_link;;
+  clean) do_clean;;
 esac

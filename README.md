@@ -26,4 +26,4 @@ In comparison to other distros, ArchLinux only has got one kernel available at a
 
 # Current Limitations
 
-You can't downgrade to your current kernel version after you previous upgrade. You have to remove the symlink manually before invoking a downgrade. An `rm /usr/lib/modules/<kernelversion>` should suffice.
+You can't downgrade to your current kernel version after you previous upgrade. You have to remove the symlink manually before invoking a downgrade. An `akulm clean` should suffice.
