@@ -7,4 +7,4 @@ Target=linux
 [Action]
 Depends=findutils
 When=PreTransaction
-Exec=/usr/bin/find /usr/lib/modules -mindepth 1 -maxdepth 1 -xtype l -exec rm '{}' ';'
+Exec=/usr/bin/akulm gc

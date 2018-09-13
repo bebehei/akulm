@@ -1,0 +1,33 @@
+#!/bin/sh
+
+do_copy() {
+	rsync -r \
+		"/usr/lib/modules/$(uname -r)/" \
+		"/run/modules/$(uname -r)/"
+}
+
+do_gc_modules() {
+	find /run/modules \
+		-mindepth 1 \
+		-maxdepth 1 \
+		-not -name "$(uname -r)" \
+		-exec rm -rf '{}' ';'
+}
+do_gc_links() {
+	find /usr/lib/modules \
+		-mindepth 1 \
+		-maxdepth 1 \
+		-xtype l \
+		-exec rm '{}' ';'
+}
+
+do_link() {
+	[ -e "/usr/lib/modules/$(uname -r)" ] \
+		|| ln -sT "/run/modules/$(uname -r)" "/usr/lib/modules/$(uname -r)"
+}
+
+case "${1}" in
+	copy) do_copy;;
+	gc)	 do_gc_links && do_gc_modules;;
+	link) do_link;;
+esac

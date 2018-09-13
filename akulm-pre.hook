@@ -8,4 +8,4 @@ Target=linux
 Depends=rsync
 When=PreTransaction
 AbortOnFail
-Exec=/bin/sh -c 'rsync -r /usr/lib/modules/$(uname -r)/ /run/modules/$(uname -r)/'
+Exec=/usr/bin/akulm copy

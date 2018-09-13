@@ -7,4 +7,4 @@ Target=linux
 [Action]
 Depends=coreutils
 When=PostTransaction
-Exec=/bin/sh -c '[ -e "/usr/lib/modules/$(uname -r)" ] || ln -sT /run/modules/$(uname -r) /usr/lib/modules/$(uname -r)'
+Exec=/usr/bin/akulm link
