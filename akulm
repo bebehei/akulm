@@ -1,4 +1,5 @@
 #!/bin/sh
+# vim: set noexpandtab
 
 die() { printf '%s\n' "$*" >&2; exit 1; }
 
@@ -9,8 +10,8 @@ do_copy() {
 }
 
 do_clean() {
-  rm -rf /run/modules/*
-  do_gc_links
+	rm -rf /run/modules/*
+	do_gc_links
 }
 
 do_gc_modules() {
@@ -37,6 +38,6 @@ case "${1}" in
 	copy) do_copy;;
 	gc)	 do_gc_links && do_gc_modules;;
 	link) do_link;;
-  clean) do_clean;;
-  *) die "Invalid command: '${1}'. Valid commands: copy gc link clean";;
+	clean) do_clean;;
+	*) die "Invalid command: '${1}'. Valid commands: copy gc link clean";;
 esac
