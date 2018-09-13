@@ -8,4 +8,4 @@ Target=linux
 Depends=rsync
 When=PreTransaction
 AbortOnFail
-Exec=/usr/bin/akulm copy
+Exec=/usr/bin/akulm hook-pre

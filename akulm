@@ -30,6 +30,10 @@ do_clean() {
 	do_gc_links
 }
 
+do_gc() {
+	do_gc_links && do_gc_modules
+}
+
 do_gc_modules() {
 	find /run/modules \
 		-mindepth 1 \
@@ -52,9 +56,11 @@ do_link() {
 
 case "${1}" in
 	copy) do_copy;;
-	gc)	 do_gc_links && do_gc_modules;;
+	gc) do_gc;;
 	link) do_link;;
 	clean) do_clean;;
+	hook-pre)  do_copy && do_gc;;
+	hook-post) do_link;;
 	help) do_help;;
 	*) die "Invalid command: '${1}'. Valid commands: copy gc link clean help";;
 esac

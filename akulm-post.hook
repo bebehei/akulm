@@ -7,4 +7,4 @@ Target=linux
 [Action]
 Depends=coreutils
 When=PostTransaction
-Exec=/usr/bin/akulm link
+Exec=/usr/bin/akulm hook-post
