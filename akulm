@@ -3,6 +3,22 @@
 
 die() { printf '%s\n' "$*" >&2; exit 1; }
 
+do_help() {
+	cat <<-END
+	Manage kernel modules links
+
+	Usage: ${0} <command>
+
+	<command> is one of:
+	copy:  copy modules of the current kernel to /run/modules
+	link:  link the copied kernel modules into /usr/lib/modules
+	gc:    remove dangling links in /usr/lib/modules
+	clean: remove everything from akulm, that it looks like
+	       a usual ArchLinux system
+	help:  Show this help
+	END
+}
+
 do_copy() {
 	rsync -r \
 		"/usr/lib/modules/$(uname -r)/" \
@@ -39,5 +55,6 @@ case "${1}" in
 	gc)	 do_gc_links && do_gc_modules;;
 	link) do_link;;
 	clean) do_clean;;
-	*) die "Invalid command: '${1}'. Valid commands: copy gc link clean";;
+	help) do_help;;
+	*) die "Invalid command: '${1}'. Valid commands: copy gc link clean help";;
 esac

@@ -1,7 +1,7 @@
 # Maintainer: Benedikt Heine <bebe@bebehei.de>
 
 pkgname=linux-akulm
-pkgver=0.2.3
+pkgver=0.2.4
 pkgrel=1
 pkgdesc="Pacman hooks to have loadable modules after pacman -Syu"
 arch=('any')
