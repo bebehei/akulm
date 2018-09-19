@@ -3,8 +3,8 @@ Operation=Upgrade
 Type=Package
 Target=linux
 
-# Save previous module kernels onto tmpdisk
 [Action]
+Description=Saving current kernel's module directory ...
 Depends=rsync
 When=PreTransaction
 AbortOnFail

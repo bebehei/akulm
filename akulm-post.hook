@@ -3,8 +3,8 @@ Operation=Upgrade
 Type=Package
 Target=linux
 
-# Link the module files from
 [Action]
+Description=Linking the saved module files into /usr/lib/modules ...
 Depends=coreutils
 When=PostTransaction
 Exec=/usr/bin/akulm hook-post
