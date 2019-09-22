@@ -15,7 +15,7 @@ source=(
 	'akulm.tmpfiles'
 )
 # Skip checksumming, as these files are
-# currently tracked int the same gitrepo
+# currently tracked in the same gitrepo
 md5sums=('SKIP' 'SKIP' 'SKIP' 'SKIP')
 
 
