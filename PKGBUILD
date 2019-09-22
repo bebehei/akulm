@@ -23,7 +23,7 @@ package() {
 	cd "${srcdir}"
 
 	for hook in akulm-pre akulm-post; do
-		install -Dm644 "${hook}.hook" "${pkgdir}/usr/share/libalpm/hooks/${hook}.hook"
+		install -Dm644 "${hook}.hook" "${pkgdir}/usr/share/libalpm/hooks/00-${hook}.hook"
 	done
 
 	install -Dm644 "akulm.tmpfiles" "${pkgdir}/usr/lib/tmpfiles.d/akulm.conf"
