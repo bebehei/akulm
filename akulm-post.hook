@@ -2,6 +2,9 @@
 Operation=Upgrade
 Type=Package
 Target=linux
+Target=linux-hardened
+Target=linux-lts
+Target=linux-zen
 
 [Action]
 Description=Linking the saved module files into /usr/lib/modules ...
