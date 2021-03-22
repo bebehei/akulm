@@ -7,7 +7,7 @@ pkgdesc="Pacman hooks to have loadable modules after pacman -Syu"
 arch=('any')
 url="https://github.com/bebehei/akulm"
 license=('GPL3')
-depends=('pacman')
+depends=('pacman' 'rsync')
 source=(
 	'akulm'
 	'akulm-pre.hook'
