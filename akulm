@@ -19,6 +19,10 @@ do_help() {
 	END
 }
 
+is_chroot() {
+    systemd-detect-virt --chroot || systemd-detect-virt --container
+}
+
 do_copy() {
 	rsync -r \
 		"/usr/lib/modules/$(uname -r)/" \
@@ -59,8 +63,8 @@ case "${1}" in
 	gc) do_gc;;
 	link) do_link;;
 	clean) do_clean;;
-	hook-pre)  do_copy && do_gc;;
-	hook-post) do_link;;
+	hook-pre)  is_chroot || do_copy && do_gc;;
+	hook-post) is_chroot || do_link;;
 	help) do_help;;
 	*) die "Invalid command: '${1}'. Valid commands: copy gc link clean help";;
 esac
