@@ -22,9 +22,8 @@ md5sums=('SKIP' 'SKIP' 'SKIP' 'SKIP')
 package() {
 	cd "${srcdir}"
 
-	for hook in akulm-pre akulm-post; do
-		install -Dm644 "${hook}.hook" "${pkgdir}/usr/share/libalpm/hooks/00-${hook}.hook"
-	done
+	install -Dm644 "akulm-pre.hook" "${pkgdir}/usr/share/libalpm/hooks/00-akulm-pre.hook"
+	install -Dm644 "akulm-post.hook" "${pkgdir}/usr/share/libalpm/hooks/90-akulm-post.hook"
 
 	install -Dm644 "akulm.tmpfiles" "${pkgdir}/usr/lib/tmpfiles.d/akulm.conf"
 
